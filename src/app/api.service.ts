@@ -42,7 +42,7 @@ export class ApiService {
 
   getBooks(): Observable<any> {
     return this.http
-      .get(apiUrl, httpOptions)
+      .get(apiUrl + "/products", httpOptions)
       .pipe(map(this.extractData), catchError(this.handleError));
   }
 }

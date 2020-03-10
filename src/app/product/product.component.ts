@@ -10,17 +10,16 @@ import { ApiService } from "../api.service";
 export class ProductComponent implements OnInit {
   constructor(private api: ApiService) {}
 
-  books: any;
+  products: any;
   ngOnInit() {
-    this.books = [{ name: "Vo duc dan" }];
-    // this.api.getBooks().subscribe(
-    //   res => {
-    //     console.log(res);
-    //     this.books = res;
-    //   },
-    //   err => {
-    //     console.log(err);
-    //   }
-    // );
+    this.api.getBooks().subscribe(
+      res => {
+        console.log(res);
+        this.products = res;
+      },
+      err => {
+        console.log(err);
+      }
+    );
   }
 }
