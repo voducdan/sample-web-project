@@ -1,4 +1,12 @@
-<p>
-  product works!
-  {{products[0].name}}
-</p>
+<div class="container">
+  <div class="row">
+    <div class="col-md-2 product" *ngFor="let product of products">
+      <img class="avt" [src]="product.image" alt="">
+      <div class="title">{{product.name}}</div>
+      <div class="price">
+        <span class="symbol">₫</span>
+        <span class="value">{{product.cost}}</span>
+      </div>
+    </div>
+  </div>
+</div>

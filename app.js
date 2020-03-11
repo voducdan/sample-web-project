@@ -22,8 +22,8 @@ app.use(cors());
 app.use(bodyParser({ urlencoded: false }));
 app.use(express.json());
 app.use(express.urlencoded({ extended: false }));
-app.use(express.static(path.join(__dirname, 'dist/shopping-e-commnerce-app')));
-app.use('/products', express.static(path.join(__dirname, 'dist/shopping-e-commnerce-app')));
+app.use(express.static(path.join(__dirname, 'dist/shopping-e-commerce-app')));
+app.use('/products', express.static(path.join(__dirname, 'dist/shopping-e-commerce-app')));
 app.use('/api', productApi);
 app.use(function (req, res, next) {
     next(createError(404));

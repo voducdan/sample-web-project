@@ -1,0 +1,36 @@
+.row {
+  display: flex;
+  justify-content: center;
+  .product {
+    background-color: white;
+    border: 1px solid #f1e3e3;
+    overflow: hidden;
+    margin-right: 30px;
+    margin-bottom: 30px;
+    padding: 0;
+    .avt {
+      padding: 3px;
+      display: block;
+      width: 100%;
+    }
+    .title,
+    .price {
+      padding-left: 5px;
+    }
+    .title {
+      display: block;
+      white-space: nowrap;
+      overflow: hidden;
+      text-overflow: ellipsis;
+      color: rgba(0, 0, 0, 0.8);
+      font-family: sans-serif;
+    }
+    &:hover {
+      border: 1px solid red;
+      transform: scale(1.1);
+    }
+  }
+  .product:nth-child(5n) {
+    margin-right: 0;
+  }
+}
