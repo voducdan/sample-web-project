@@ -25,21 +25,13 @@ const productSchema = new mongoose.Schema({
         type: String,
         required: true
     },
-    brand:{
-        type:String,
-        required:true
+    attributes: {
+        type: Array,
+        required: true
     },
-    from:{
-        type:String,
-        required:true
-    },
-    material:{
-        type:String,
-        required:true
-    },
-    expire_date:{
-        type:Number,
-        required:true
+    description: {
+        type: Object,
+        required: true
     },
     date_created: {
         type: Date,
