@@ -1,4 +1,5 @@
 import { Component, OnInit } from "@angular/core";
+import { ActivatedRoute } from '@angular/router';
 
 import { ApiService } from "../api.service";
 
@@ -8,11 +9,12 @@ import { ApiService } from "../api.service";
   styleUrls: ["./product.component.scss"]
 })
 export class ProductComponent implements OnInit {
-  constructor(private api: ApiService) {}
+  constructor(private api: ApiService, private route: ActivatedRoute) {}
 
   products: any;
   ngOnInit() {
-    this.api.getBooks().subscribe(
+    const category = this.route.queryParams["value"]["category"];
+    this.api.getBooks(category).subscribe(
       res => {
         console.log(res);
         this.products = res;

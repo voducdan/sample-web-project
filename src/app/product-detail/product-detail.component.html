@@ -1,3 +1,46 @@
-<p>
-  product-detail works!
-</p>
+<div class="container mt-5">
+  <div class="row justify-content-center align-items-center pt-5">
+    <div class="avt col-md-5 d-flex justify-content-center align-items-center">
+      <img [src]="product?.image" alt="avatar">
+    </div>
+    <div class="info col-md-7">
+      <div class="title text-uppercase">{{product?.name}}</div>
+      <div class="rate">Đánh giá: {{product?.rating}} sao</div>
+      <hr>
+      <div class="cost">Giá: {{product?.cost}}</div>
+      <hr>
+      <div class="buy d-flex justify-content-start align-items-center">
+        <ul class="pagination pagination-sm quantity mr-5 mb-0">
+          <li class="page-item">
+            <a class="page-link">-</a>
+          </li>
+          <li class="page-item"><a class="page-link">1</a></li>
+          <li class="page-item"><a class="page-link">+</a></li>
+        </ul>
+        <div class="buy-btn btn btn-danger">CHỌN MUA</div>
+      </div>
+    </div>
+  </div>
+  <div class="attribute mt-5">
+    <h2>Thông tin chi tiết</h2>
+    <table class="table table-striped table-bordered">
+      <thead>
+      </thead>
+      <tbody>
+        <tr *ngFor="let attribute of product.attributes">
+          <td scope="row">{{attribute.name}}</td>
+          <td scope="row">{{attribute.value}}</td>
+        </tr>
+      </tbody>
+    </table>
+  </div>
+  <div class="detail">
+    <h2>Mô tả sản phẩm</h2>
+    <ul>
+      <li *ngFor="let item of product.description.value">
+        {{item}}
+      </li>
+    </ul>
+    <p class="font-italic font-weight-light">Notes: {{product.description.note}}</p>
+  </div>
+</div>

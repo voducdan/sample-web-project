@@ -9,7 +9,8 @@ import {
 import { catchError, tap, map } from "rxjs/operators";
 
 const httpOptions = {
-  headers: new HttpHeaders({ "Content-Type": "applycation/json" })
+  headers: new HttpHeaders({ "Content-Type": "applycation/json" }),
+  params: {}
 };
 
 const apiUrl = "/api";
@@ -40,9 +41,17 @@ export class ApiService {
     return body || {};
   }
 
-  getBooks(): Observable<any> {
+  getBooks(category: string): Observable<any> {
+    httpOptions.params = { category };
     return this.http
       .get(apiUrl + "/products", httpOptions)
+      .pipe(map(this.extractData), catchError(this.handleError));
+  }
+  getBooksDetail(id: string): Observable<any> {
+    const uri: string = `${apiUrl}/products/${id}`;
+    console.log(uri);
+    return this.http
+      .get(uri, httpOptions)
       .pipe(map(this.extractData), catchError(this.handleError));
   }
 }

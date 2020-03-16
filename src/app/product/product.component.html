@@ -1,12 +1,12 @@
-<div class="container">
+<div class="container mt-3">
   <div class="row">
-    <div class="col-md-2 product" *ngFor="let product of products">
+    <a [routerLink]="product._id" class="col-md-2 product" *ngFor="let product of products">
       <img class="avt" [src]="product.image" alt="">
       <div class="title">{{product.name}}</div>
       <div class="price">
         <span class="symbol">₫</span>
         <span class="value">{{product.cost}}</span>
       </div>
-    </div>
+    </a>
   </div>
 </div>
